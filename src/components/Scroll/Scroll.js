@@ -1,6 +1,6 @@
 import './Scroll.css'
 import { useEffect, useRef, useState } from 'react';
-function Scroll ({index}){
+function Scroll ({index,images}){
     const parentRef = useRef(null);
     const ScrollBarRef = useRef(null);
     const [height,setheight] = useState('0px');
@@ -11,42 +11,34 @@ function Scroll ({index}){
             if (parentRef.current) {
                 const parentHeight = parentRef.current.clientHeight;
                 const maxScroll = parentHeight - 35;
-                setheight(`${Math.min((parentRef.current.scrollTop)/2, maxScroll)}px`)
-                const scrollPercentage = ((parentRef.current.scrollTop / maxScroll)/2) * 100;
+                const scrollPercentage = ((parentRef.current.scrollTop / images.length));
+                // setheight(`${Math.min((parentRef.current.scrollTop)/parentHeight, maxScroll)}px`)
+                setheight(`${Math.min(scrollPercentage, maxScroll)}px`)
                 console.log(scrollPercentage)
 
                 // Determine text based on scroll percentage
                 let newText = 'Scroll Bar';
-                if (scrollPercentage <= 10) {
+                if (scrollPercentage <= 100) {
                     newText = 'Age 1';
                 }
-                else if (scrollPercentage <= 20) {
+                else if (scrollPercentage <= 200) {
                     newText = 'Age 3';
                 }
-                else if (scrollPercentage <= 30) {
+                else if (scrollPercentage <= 300) {
                     newText = 'Age 5';
                 }
-                else if (scrollPercentage <= 40) {
+                else if (scrollPercentage <= 400) {
                     newText = 'Age 10';
                 }
-                else if (scrollPercentage <= 50) {
+                else if (scrollPercentage <= 500) {
                     newText = 'Age 13';
                 }
-                else if (scrollPercentage <= 60) {
+                else if (scrollPercentage <= 600) {
                     newText = 'Age 16';
                 }
-                else if (scrollPercentage <= 70) {
+                else if (scrollPercentage <= 700) {
                     newText = 'Age 17';
                 }
-                else if (scrollPercentage <= 80) {
-                    newText = 'Age 22';
-                }
-                else if (scrollPercentage <= 90) {
-                    newText = 'Age 24';
-                }else{
-                    newText = 'Age 24';
-                }
-
                 setText(newText);
             }
           };
@@ -65,21 +57,10 @@ function Scroll ({index}){
         <>
             <div className="Foster">
                 <div className="Parent" ref={parentRef}>
-                    <div className="child">1</div>
-                    <div className="child">2</div>
-                    <div className="child">3</div>
-                    <div className="child">4</div>
-                    <div className="child">5</div>
-                    <div className="child">6</div>
-                    <div className="child">7</div>
-                    <div className="child">8</div>
-                    <div className="child">9</div>
-                    <div className="child">10</div>
-                    <div className="child">11</div>
-                    <div className="child">12</div>
-                    <div className="child">13</div>
-                    <div className="child">14</div>
-                    <div className="child">15</div>
+                    {images.map((image,index) => (    
+                        <div className="child" key={index}><img src={image} alt='hi'/>jjj</div>
+                    ))
+                    }
                 </div>
                 <div className="ParentScroller" ref={ScrollBarRef} style={{ transform: `translateY(${height})` }}>
                     {Text}

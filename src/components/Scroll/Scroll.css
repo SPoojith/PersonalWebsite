@@ -1,6 +1,7 @@
 .Foster{
     display: flex;
     flex-direction: column;
+    min-width: 25%;
     max-width: 25%;
     min-height: 100%;
     position: relative;
@@ -8,7 +9,7 @@
 }
 
 .Parent{
-    position:sticky;
+    position:relative;
     background-color: brown;
     display: flex;
     flex-direction: column;
@@ -23,16 +24,16 @@
 }
 
 .child{
-    background-color: yellow;
+    /* background-color: yellow; */
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 380px;
-    /* width:100%; */
+    width:100%;
     min-width: 100%;
-    min-height: 20%;
+    /* min-height: auto; */
     border: 2px solid red;
+    
 }
 
 .ParentScroller{
