@@ -1,5 +1,6 @@
 import './Journey.css';
-import bgv from '../../Assests/c.mp4'
+// import bgv from '../../Assests/c.mp4'
+import bgv from '../../Assests/Journeyideo.mp4'
 // import bgv from '../../Assests/b.mov'
 
 function Journey() {
