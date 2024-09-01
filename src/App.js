@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <div className="body">
         <>
-        <MiniDrawer/>
         <Home/>
         <Journey/>
         <ParentScroll/>

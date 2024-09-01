@@ -113,7 +113,7 @@ export default function MiniDrawer() {
 
   return (
     <>
-          {/* <Drawer variant="permanent" open={open} anchor='right' >
+          <Drawer variant="permanent" open={open} anchor='right' >
             <DrawerHeader>
               {
                 open ? 
@@ -237,7 +237,7 @@ export default function MiniDrawer() {
                 </ListItem>
               ))}
             </List>
-          </Drawer> */}
+          </Drawer>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import './Scroll.css'
 import { useEffect, useRef, useState } from 'react';
-function Scroll ({index,images}){
+function Scroll ({index,images,DefaultText}){
     const parentRef = useRef(null);
     const ScrollBarRef = useRef(null);
     const [height,setheight] = useState('0px');
@@ -10,36 +10,54 @@ function Scroll ({index,images}){
         const handleScroll = () => {
             if (parentRef.current) {
                 const parentHeight = parentRef.current.clientHeight;
-                const maxScroll = parentHeight - 35;
-                const scrollPercentage = ((parentRef.current.scrollTop / images.length));
-                // setheight(`${Math.min((parentRef.current.scrollTop)/parentHeight, maxScroll)}px`)
+                const maxScroll = parentHeight -30;
+                const scrollPercentage = ((parentRef.current.scrollTop /((parentRef.current.scrollHeight/parentHeight)-1)));
+                console.log('1',parentHeight)
+                console.log("2",parentRef.current.scrollTop)
+                console.log("3",scrollPercentage)
+                console.log("5",parentRef.current.scrollHeight)
                 setheight(`${Math.min(scrollPercentage, maxScroll)}px`)
                 console.log(scrollPercentage)
-
-                // Determine text based on scroll percentage
-                let newText = 'Scroll Bar';
-                if (scrollPercentage <= 100) {
-                    newText = 'Age 1';
+                if(index === 0){                    
+                    let newText = 'Scroll Bar';
+                    if (scrollPercentage <= 100) {
+                        newText = 'Age 23';
+                    }
+                    else if (scrollPercentage <= 200) {
+                        newText = 'Age 22';
+                    }
+                    else if (scrollPercentage <= 300) {
+                        newText = 'Age 21';
+                    }
+                    else if (scrollPercentage <= 400) {
+                        newText = 'Age 20';
+                    }
+                    else if (scrollPercentage <= 500) {
+                        newText = 'Age 19';
+                    }
+                    else if (scrollPercentage <= 600) {
+                        newText = 'Age 18';
+                    }
+                    else if (scrollPercentage <= 700) {
+                        newText = 'Age 17';
+                    }
+                    setText(newText);
+                }else if(index === 1){
+                    let newText = DefaultText;
+                    if (scrollPercentage <= 50) {
+                        newText = DefaultText;
+                    }
+                    else if (scrollPercentage <= 380) {
+                        newText = 'Photography';
+                    }
+                    else if (scrollPercentage <= 590) {
+                        newText = 'WallPainting';
+                    }
+                    else if (scrollPercentage <= 700) {
+                        newText = 'Cooking';
+                    }
+                    setText(newText);   
                 }
-                else if (scrollPercentage <= 200) {
-                    newText = 'Age 3';
-                }
-                else if (scrollPercentage <= 300) {
-                    newText = 'Age 5';
-                }
-                else if (scrollPercentage <= 400) {
-                    newText = 'Age 10';
-                }
-                else if (scrollPercentage <= 500) {
-                    newText = 'Age 13';
-                }
-                else if (scrollPercentage <= 600) {
-                    newText = 'Age 16';
-                }
-                else if (scrollPercentage <= 700) {
-                    newText = 'Age 17';
-                }
-                setText(newText);
             }
           };
       
@@ -58,12 +76,12 @@ function Scroll ({index,images}){
             <div className="Foster">
                 <div className="Parent" ref={parentRef}>
                     {images.map((image,index) => (    
-                        <div className="child" key={index}><img src={image} alt='hi'/>jjj</div>
+                        <div className="child" key={index}><img src={image} width="100%" height='100%' alt='hi'/></div>
                     ))
                     }
                 </div>
                 <div className="ParentScroller" ref={ScrollBarRef} style={{ transform: `translateY(${height})` }}>
-                    {Text}
+                    {Text?Text:DefaultText}
                 </div>
                 
              </div>
