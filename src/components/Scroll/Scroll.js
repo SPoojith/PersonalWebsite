@@ -19,7 +19,7 @@ function Scroll ({index,images,DefaultText}){
                 setheight(`${Math.min(scrollPercentage, maxScroll)}px`)
                 console.log(scrollPercentage)
                 if(index === 0){                    
-                    let newText = 'Scroll Bar';
+                    let newText = DefaultText;
                     if (scrollPercentage <= 100) {
                         newText = 'Age 23';
                     }

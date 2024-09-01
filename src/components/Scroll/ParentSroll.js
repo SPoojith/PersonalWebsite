@@ -30,7 +30,7 @@ import a9 from '../../Assests/Age/p9.jpg'
 import a10 from '../../Assests/Age/p10.JPG'
 import a11 from '../../Assests/Age/p11.jpg'
 function ParentScroll (){
-    const Age = [a1,a2,a3,a4,a5,a6,a7,a8,a9,a10.a11];
+    const Age = [a1,a2,a3,a4,a5,a7,a8,a9,a10,a11];
     const Passion = [p1,p8,p5,p4,p2,p3,p9,p6,p7];
     const Culture = [c5,c2,c7,c3,c4,c6,c1];
     return (
